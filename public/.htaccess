@@ -1,0 +1,14 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+
+<IfModule mod_headers.c>
+# WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+    Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+</IfModule>
